@@ -1,0 +1,39 @@
+<!--
+  Generated template for the ForgetPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>忘记密码</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="forgetForm" novalidate>
+		<ion-list>
+				<!-- <ion-item>
+					<ion-label color="danger">身份证号码</ion-label>
+		    		<ion-input placeholder="请输入您的姓名" formControlName="idCard" required></ion-input>
+				</ion-item> -->
+				<ion-item>
+					<ion-label color="danger" >手机号</ion-label>
+				    <ion-input type="tel" placeholder="请输入手机号" maxLength="11"
+				    		required formControlName="phoneNo" (keyup)="showBtn()"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label color="danger">验证码</ion-label>
+		    		<ion-input type="tel" placeholder="请输入验证码" formControlName="validCode" required></ion-input>
+		    		<button #sendBtn id="sendBtn" ion-button item-end outline [disabled]="isUnchanged" color="danger"
+                  style="width:100px;height:35px;"
+                  (click)="sendSms()">获取验证码</button>
+				</ion-item>
+		</ion-list>
+		<ion-list padding>
+			<button ion-button color="primary" block (click)="doCommit()">&nbsp;下一步&nbsp;</button>
+		</ion-list>
+	</form>
+</ion-content>

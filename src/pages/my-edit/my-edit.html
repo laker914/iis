@@ -1,0 +1,37 @@
+<!--
+  Generated template for the MyEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>编辑</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="updateForm" novalidate>
+    <ion-list style="margin-bottom: 0px;">
+      <ion-item>
+        <ion-label color="danger">姓名</ion-label>
+        <ion-input placeholder="请输入您的姓名" [formControl]="realName" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="danger">身份证号码</ion-label>
+        <ion-input placeholder="请输入您的姓名" [formControl]="idCard" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="danger">社保编号</ion-label>
+        <ion-input placeholder="请输入您的社保编号" [formControl]="insuranceNo" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list padding>
+      <button ion-button color="primary" block (click)="update(updateForm.value)"
+            [disabled]="!updateForm.valid">&nbsp;修改&nbsp;</button>
+    </ion-list>
+  </form>
+</ion-content>

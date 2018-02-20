@@ -1,0 +1,33 @@
+<ion-header hidden>
+  <ion-navbar hideBackButton="true">
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="tutorial-page">
+
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+<ion-footer>
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary" (click)="goContinue()">跳过</button>
+        </ion-buttons>
+      </ion-toolbar>
+      </ion-footer>
+      <img [src]="slide.image" class="slide-image"/>
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+    <ion-slide>
+      <ion-toolbar>
+      </ion-toolbar>
+      <img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/>
+      <h2 class="slide-title">Ready to Play?</h2>
+      <button ion-button large clear icon-end color="primary" (click)="goContinue();">
+        现在进入
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

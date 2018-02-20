@@ -1,0 +1,84 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header mode="ios">
+
+  <ion-navbar color="primary">
+    <ion-title >注册</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)" novalidate>
+	<ion-list style="margin-bottom: 0px;">
+		<ion-item>
+			<ion-label color="danger">&nbsp;姓&nbsp;&nbsp;名&nbsp;</ion-label>
+    		<ion-input placeholder="请输入您的姓名" required [formControl]="realName"></ion-input>
+		</ion-item>
+    <div formGroupName="passwordGroup">
+      <ion-item>
+        <ion-label color="danger">&nbsp;密&nbsp;&nbsp;码&nbsp;</ion-label>
+        <ion-input type="password" placeholder="请输入密码" required formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="danger">确认密码</ion-label>
+        <ion-input type="password" placeholder="请再次输入密码" required formControlName="confirmPassword"></ion-input>
+      </ion-item>
+    </div>
+    <!-- <ion-item>
+      <ion-label color="danger">身份证号码</ion-label>
+        <ion-input type="number" placeholder="请输入18位身份证号码" required [formControl]="idCard" maxLength="18">
+       </ion-input>
+    </ion-item> -->
+		<ion-item>
+			<ion-label color="danger">手机号</ion-label>
+		    <ion-input type="tel" placeholder="请输入11位手机号" required [formControl]="phoneNo" (keyup)="showBtn(phoneNo);" maxLength="11">
+       </ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label color="danger">验证码</ion-label>
+    		<ion-input type="tel" placeholder="请输入验证码" required [formControl]="validCode" maxLength="4" ></ion-input>
+    		<button ion-button item-end outline style="width:100px;height:35px;"
+    				[disabled]="isUnchanged" #sendValidCodeBtn id="sendValidCodeBtn" color="danger"
+    				(click)="sendSms(sendValidCodeBtn)">获取验证码</button>
+		</ion-item>
+	</ion-list>
+	<ion-list padding style="margin-bottom: 0px;">
+		<ion-item style="border:none;">
+  			<ion-label color="darklight"style="border:none;font-size: 1rem;">
+  				已同意并阅读《。。。》的协议</ion-label>
+  			<ion-checkbox checked="isRead" (ionChange)="isRead=!isRead" ></ion-checkbox>
+		</ion-item>
+    	<button type="submit" ion-button color="primary" block
+            [disabled]="!registerForm.valid || !isRead">&nbsp;注&nbsp;&nbsp;册&nbsp;</button>
+    </ion-list>
+    <ion-list padding>
+      <div class="error-message"
+          *ngIf="realName.hasError('required') && realName.touched">
+          * 请输入您的真实姓名</div>
+      <div class="error-message"
+          *ngIf="registerForm.get('passwordGroup').get('password').hasError('required') && registerForm.get('passwordGroup').get('password').touched">
+          * 请输入密码
+      </div>
+      <div class="error-message"
+          *ngIf="registerForm.get('passwordGroup').get('password').hasError('minlength') && registerForm.get('passwordGroup').get('password').touched">
+          * 密码长度至少6位</div>
+      <div class="error-message"
+          *ngIf="registerForm.hasError('passValidator','passwordGroup')">
+          * {{registerForm.getError('passValidator','passwordGroup')?.descx}}</div>
+      <div class="error-message"
+          *ngIf="registerForm.get('passwordGroup').get('confirmPassword').hasError('required') && registerForm.get('passwordGroup').get('confirmPassword').touched">
+          * 请输入确认密码</div>
+      <div class="error-message" *ngIf="phoneNo.hasError('required') && phoneNo.touched">
+          * 请输入11位手机号</div>
+      <div class="error-message" *ngIf="phoneNo.hasError('pattern') && phoneNo.touched">
+          * 手机号格式不对</div>
+      <div class="error-message" *ngIf="validCode.hasError('required') && validCode.touched">
+          * 请输入验证码</div>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,47 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content class="login-page">
+	<form [formGroup]="loginForm" novalidate>
+		<ion-list style="margin-top: 25%;">
+			<ion-item>
+				<ion-label style="width:10%;text-align: center;">
+					<ion-icon name="contact" color="primary"></ion-icon>
+				</ion-label>
+				<ion-input type="tel" [formControl]="phoneNo"
+							placeholder="请输入11位手机号" required maxLength="11"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label style="width:10%;text-align: center;">
+					<ion-icon name="lock" color="primary"></ion-icon>
+				</ion-label>
+				<ion-input type="password" [formControl]="password"
+							placeholder="请输入登录密码,至少6位" required></ion-input>
+			</ion-item>
+		</ion-list>
+		<!-- <ion-list padding>
+			<div *ngIf="phoneNo.hasError('required') && phoneNo.touched" class="error-message">* 请输入11位手机号</div>
+			<div *ngIf="phoneNo.hasError('pattern') && phoneNo.touched" class="error-message">* 手机号码格式不对</div>
+			<div *ngIf="password.hasError('required') && password.touched" class="error-message">* 请输入密码</div>
+			<div *ngIf="password.hasError('minlength') && password.touched" class="error-message">* 密码长度至少6位</div>
+		</ion-list> -->
+		<div padding>
+	    	<button ion-button color="primary" block type="button" (click)="login(loginForm.value)">登录</button>
+	    </div>
+	    <ion-list class="register">
+	    	<ion-grid>
+					<ion-row>
+						<ion-col>
+							<div><a (click)="registerTo()">注册</a></div>
+						</ion-col>
+						<ion-col>
+							<div><a (click)="forgetTo()">忘记密码?</a></div>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+	    </ion-list>
+	</form>
+</ion-content>
