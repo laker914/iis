@@ -1,3 +1,35 @@
-page-home {
+.home-grid {
+  padding: 0px;
+  background-color: #f0f5ff;
+  // margin-bottom: 2px;
+  ion-grid {
+    background-color: #f0f5ff;
+    border-bottom: 1px solid #e6e9ee;
+    padding: 0px;
+  }
+  .row {
+    height: 100px;
+  }
+  .col {
+    text-align: center;
+    vertical-align: middle;
+    background: #FFFFFF;
+    border: 1px solid #e6e9ee;
+  }
+  .col div {
+    vertical-align: middle;
+    padding: 25px;
+    border-radius: 2px;
+    text-align: center;
+  }
+}
 
+ion-img {
+  width: 100%;
+  height: 145px;
+
+  img {
+    width: 100%;
+    height: 145px;
+  }
 }

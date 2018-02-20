@@ -1,14 +1,119 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true" color="primary">
     <ion-title>
-      Ionic Blank
+      首页
     </ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="logout()">
+           <ion-icon name="log-out"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content style="background:#eee;">
+   <ion-img style="width: 100%; height: 140px;z-index:1;" src="assets/imgs/log_bg.jpg"></ion-img>
+   <ion-toolbar>
+     <ion-buttons end>
+       <button ion-button solid color="primary" style="width:100px;" (click)="goToMy();">
+         <div [ngStyle]="{'font-size':'1.5rem;'}">个人中心</div>
+       </button>
+     </ion-buttons>
+   </ion-toolbar>
+   <ion-list class="home-grid" mode="ios">
+  		<ion-list-header mode="ios">
+    		<h5>查询</h5>
+  		</ion-list-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            机关事业养老保险查询
+            </div>
+        </ion-col>
+        <ion-col>
+          <div>企业职工养老保险查询</div>
+        </ion-col>
+        <ion-col>
+          <div>城乡居民养老保险查询</div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>职工医疗保险查询</div>
+        </ion-col>
+        <ion-col>
+          <div>城乡居民医疗保险查询</div>
+        </ion-col>
+        <ion-col>
+          <div>生育保险查询</div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div>工伤保险查询</div>
+        </ion-col>
+        <ion-col>
+          <div>失业保险查询</div>
+        </ion-col>
+        <ion-col>
+          <div>社保卡查询</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+     <ion-list-header mode="ios">
+       <h5>办事</h5>
+     </ion-list-header>
+     <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>社会保障</div>
+          </ion-col>
+          <ion-col>
+            <div>人力资源</div>
+          </ion-col>
+          <ion-col>
+            <div>监察仲裁</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div>我的预约</div>
+          </ion-col>
+          <ion-col>
+            <div>问答咨询</div>
+          </ion-col>
+          <ion-col>
+            <div></div>
+          </ion-col>
+        </ion-row>
+     </ion-grid>
+      <ion-list-header mode="ios">
+        <h5>政策查询</h5>
+      </ion-list-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div></div>
+          </ion-col>
+          <ion-col>
+            <div></div>
+          </ion-col>
+          <ion-col>
+            <div></div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div></div>
+          </ion-col>
+          <ion-col>
+            <div></div>
+          </ion-col>
+          <ion-col>
+            <div></div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
 </ion-content>
